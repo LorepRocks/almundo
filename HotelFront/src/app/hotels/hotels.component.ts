@@ -15,12 +15,12 @@ export class HotelsComponent implements OnInit {
   }
   constructor(private _hotelsService: HotelsService) {
     this._hotelsService.getHotels(this.initialParams).subscribe(hotels => {
-      console.log("hotels", hotels);
+      this.hotels = hotels;
     })
   }
 
   ngOnInit() {
-
+      
   }
 
 }

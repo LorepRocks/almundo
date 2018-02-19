@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 .separator{
-  margin-top: 10px;
+  padding-top: 10px;
+  background-color: rgb(232, 232, 232);
+  clear: both;
 }
 
 .ico-bathrobes{

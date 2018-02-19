@@ -1,26 +1,24 @@
-<div class="separator">
-  <div class="principal">
-    <div class="card" *ngFor="let hotel of _hotelsService.hotels">
-      <div class="row ">
-        <div class="col-md-4">
-          <img src="../assets/images/hotels/{{hotel.image}}" class="w-100">
+<div class="principal">
+  <div class="card" *ngFor="let hotel of _hotelsService.hotels">
+    <div class="row ">
+      <div class="col-md-4">
+        <img src="../assets/images/hotels/{{hotel.image}}" class="w-100">
+      </div>
+      <div class="col-md-5">
+        <div class="card-block px-3">
+          <h6>{{hotel.name}}</h6>
+          <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+          <br/>
+          <i class="ico-bathrobes"></i><i class="ico-restaurant"></i>
         </div>
-        <div class="col-md-5">
-          <div class="card-block px-3">
-            <h6>{{hotel.name}}</h6>
-            <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-            <br/>
-            <i class="ico-bathrobes"></i><i class="ico-restaurant"></i>
-          </div>
 
-        </div>
-        <div class="col-md-3 px-3">
-          <div class="verticalLine">
-            <p style="text-align:center; font-size:12px">Precio por noche habitacion</p>
-            <h6 style="text-align:center; display:inline-block; margin:5px">ARS</h6>
-            <h5 style="text-align:center; display:inline-block">{{hotel.price}}</h5>
-            <button class="btn btn-outline-secondar show" type="button">Ver hotel</button>
-          </div>
+      </div>
+      <div class="col-md-3 px-3">
+        <div class="verticalLine">
+          <p style="text-align:center; font-size:12px">Precio por noche habitacion</p>
+          <h6 style="text-align:center; display:inline-block; margin:5px">ARS</h6>
+          <h5 style="text-align:center; display:inline-block">{{hotel.price}}</h5>
+          <button class="btn btn-outline-secondar show" type="button">Ver hotel</button>
         </div>
       </div>
     </div>
