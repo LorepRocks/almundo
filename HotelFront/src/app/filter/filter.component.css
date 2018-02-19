@@ -1,0 +1,15 @@
+.filter {
+  background-color: rgb(170, 183, 184);
+}
+.columnFilter {
+  float: left;
+  width: 30%;
+  padding: 15px;
+}
+.search{
+  display: inline-block;
+  margin-left: 8px;
+}
+.item{
+  margin-right: 5px;
+}

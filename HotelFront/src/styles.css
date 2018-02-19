@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+.separator{
+  margin-top: 10px;
+}
+
+.ico-bathrobes{
+  background: url('assets/icons/amenities/bathrobes.svg');
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.ico-restaurant{
+  background: url('assets/icons/amenities/restaurant.svg');
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}

@@ -1,0 +1,25 @@
+.principal {
+
+  float: right;
+  width: 70%;
+  padding-left: 10px;
+}
+.verticalLine{
+  border-left: 1px dotted rgb(196, 194, 201);
+    height: 130px;
+}
+
+.centrado:{
+  text-align: center !important;
+  font-size: 8px !important;
+}
+
+.price:{
+  display: inline-block !important;
+}
+
+.show{
+  margin-left: 10px;
+  background-color: rgb(28, 12, 154);
+  color: white;
+}
