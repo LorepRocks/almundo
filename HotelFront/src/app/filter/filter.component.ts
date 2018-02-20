@@ -10,6 +10,15 @@ export class FilterComponent implements OnInit {
 
   name: String = "";
   stars: String = "";
+
+  starsArray:any = [
+    {value:""},
+    {value:5},
+    {value:4},
+    {value:3},
+    {value:2},
+    {value:1}
+  ]
   constructor(private _hotelsService: HotelsService) { }
 
   getFilterHotels() {

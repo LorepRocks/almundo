@@ -1,8 +1,7 @@
-.principal {
-
-  
-  width: 70%;
-  padding-left: 10px;
+.static-content{
+  height: 560px;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 .verticalLine{
   border-left: 1px dotted rgb(196, 194, 201);

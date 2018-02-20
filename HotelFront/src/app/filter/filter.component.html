@@ -1,23 +1,20 @@
-<div class="columnFilter filter">
+<div class="separator filter-box">
   <div class="box">
-      <h4>Filtros</h4>
+    <h5>Filtros</h5>
   </div>
-
-  <hr/>
-  <h6 class="search">Nombre de Hotel</h6>
-  <input type="text" [(ngModel)]="name" class=" form-control search" /> {{ name }}
-  <button class="btn btn-outline-secondar search" type="button" (click)="getFilterHotels()">Aceptar</button>
-  <hr/>
-  <i class="fa fa-star"></i>
-  <h6 class="search"> Estrellas</h6>
-  <hr/>
-  <ul>
-    {{ stars }}
-    <li><input type="radio" name="stars" value="" [(ngModel)]="stars" aria-label="Radio for following text input" class="item">Todas las Estrellas</li>
-    <li><input type="radio" name="stars" value="5" [(ngModel)]="stars" aria-label="Radio for following text input" class="item"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></li>
-    <li><input type="radio" name="stars" value="4" [(ngModel)]="stars" aria-label="Checkbox for following text input" class="item"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></li>
-    <li><input type="radio" name="stars" value="3" [(ngModel)]="stars" aria-label="Checkbox for following text input" class="item"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></li>
-    <li><input type="radio" name="stars" value="2" [(ngModel)]="stars" aria-label="Checkbox for following text input" class="item"><i class="fa fa-star"></i><i class="fa fa-star"></i></li>
-    <li><input type="radio" name="stars" value="1" [(ngModel)]="stars" aria-label="Checkbox for following text input" class="item"><i class="fa fa-star"></i></li>
-  </ul>
+  <div class="box">
+    <p><i class="icon icon-icon-search"></i>Nombre de Hotel</p>
+    <div class="search-bar">
+      <input class="box-cell" type="text" [(ngModel)]="name" class=" form-control search" />
+      <button class="btn btn-outline-secondar box-cell" type="button" (click)="getFilterHotels()">Aceptar</button>
+    </div>
+  </div>
+  <div class="box">
+    <p><i class="icon icon-icon-star"></i>Estrellas</p>
+    <div *ngFor="let item of starsArray">
+      <input type="radio" name="stars" value={{item.value}} [(ngModel)]="stars" aria-label="Radio for following text input" class="item">
+      <i class="icon icon-icon-star" *ngIf="item.value !== ''"></i>
+      <p style="display:inline-block" *ngIf="item.value === ''">Todas las Estrellas</p>
+    </div>
+  </div>
 </div>
