@@ -9,7 +9,7 @@ import { HotelsService } from '../services/hotels.service';
 export class HotelsComponent implements OnInit {
 
   initialParams:any = [];
-  constructor(private _hotelsService: HotelsService) {
+  constructor(public _hotelsService: HotelsService) {
      //Se invoca el servicio HotelService inicialmente con un arreglo vacio de parámetros de búsqueda para no filtrar
      //ningun dato y traer la lista completa de lotes
     this._hotelsService.getHotels(this.initialParams).subscribe()
