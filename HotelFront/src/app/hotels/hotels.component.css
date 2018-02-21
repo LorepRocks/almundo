@@ -5,7 +5,7 @@
 }
 .verticalLine{
   border-left: 1px dotted rgb(196, 194, 201);
-    height: 130px;
+  padding: 32px 0 32px 0;
 }
 
 .center:{
@@ -54,8 +54,15 @@
 @media(max-width: 600px){
     .static-content{
       height: auto;
+      overflow-y: hidden;
     }
     .img{
         width: 95%;
+    }
+    .verticalLine{
+      border-left: 0 dotted transparent;
+      border-top: 1px dotted rgb(196, 194, 201);
+      padding: 32px 0 32px 0;
+      margin-top: 15px;
     }
 }
