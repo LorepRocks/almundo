@@ -1,19 +1,18 @@
-<div class="separator filter-box">
-  <div class="box">
-    <h5>Filtros</h5>
+<div class="separator separator-color filter-box">
+  <div class="box filter-top">
+    <p class="title">Filtros</p>
   </div>
   <div class="box">
-    <p><i class="icon icon-icon-search"></i>Nombre de Hotel</p>
+    <p class="p-title"><i class="icon icon-icon-search"></i>Nombre de Hotel</p>
     <div class="search-bar">
-      <input class="box-cell" type="text" [(ngModel)]="name" class=" form-control search" />
-      <button class="btn btn-outline-secondar box-cell" type="button" (click)="getFilterHotels()">Aceptar</button>
+      <input  type="text" [(ngModel)]="name" class=" form-control search" (keyup)="getFilterHotels($event)" placeholder="Ingrese el nombre del hotel"/>
     </div>
   </div>
   <div class="box">
-    <p><i class="icon icon-icon-star"></i>Estrellas</p>
+    <p class="p-title"><i class="icon icon-icon-star"></i>Estrellas</p>
     <div *ngFor="let item of starsArray">
-      <input type="radio" name="stars" value={{item.value}} [(ngModel)]="stars" aria-label="Radio for following text input" class="item">
-      <i class="icon icon-icon-star" *ngIf="item.value !== ''"></i>
+      <input type="radio" name="stars" value={{item.value}} [(ngModel)]="stars" aria-label="Radio for following text input" class="item" (change)="getFilterHotels($event)">
+      <i class="icon icon-icon-star-ranking icon-icon-star-ranking-{{item.value}}" *ngIf="item.value !== ''"></i>
       <p style="display:inline-block" *ngIf="item.value === ''">Todas las Estrellas</p>
     </div>
   </div>

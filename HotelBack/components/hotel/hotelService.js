@@ -4,18 +4,14 @@ const hotelLogic = require('./hotelLogic')
 
 /**
  * Método que recibe la petición para consultar los hoteles
- * @param  {[type]} req [en req.query se reciben los atributos name y stars para filtrar los hoteles]
+ * @param  {[type]} req [en req.body se reciben un arreglo con los parámtros a consultar]
  * @param  {[type]} res [description]
  * @return {[type]}     [description]
  */
 let getHotels = (req, res) => {
-  let filterParams = {
-    name: req.query.name,
-    stars: req.query.stars
-  }
-  console.log('req.body', filterParams)
+
   return new Promise((resolve, reject) => {
-    hotelLogic.getHotels(filterParams)
+    hotelLogic.getHotels(req.body)
       .then((response) => resolve(
           res.status(200).send({
             message: response

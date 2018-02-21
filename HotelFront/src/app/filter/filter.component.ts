@@ -11,6 +11,7 @@ export class FilterComponent implements OnInit {
   name: String = "";
   stars: String = "";
 
+
   starsArray:any = [
     {value:""},
     {value:5},
@@ -21,15 +22,16 @@ export class FilterComponent implements OnInit {
   ]
   constructor(private _hotelsService: HotelsService) { }
 
-  getFilterHotels() {
-    console.log("llamando al filtro")
-    const params = {
-      name: this.name,
-      stars: this.stars
+  getFilterHotels(event) {
+    let filterParams = [];
+    if(this.name !== ""){
+        filterParams.push({name : this.name, type:"text"})
     }
-    this._hotelsService.getHotels(params).subscribe(res => {
-      console.log("filter hotels", res);
-    })
+    if(this.stars !== ""){
+            filterParams.push({stars : this.stars, type:"number"})
+    }
+    // Se invoca el servicio HotelService enviando el arreglo de parámetros
+    this._hotelsService.getHotels(filterParams).subscribe()
   }
   ngOnInit() {
   }

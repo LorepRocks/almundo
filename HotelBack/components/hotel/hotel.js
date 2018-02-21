@@ -1,7 +1,6 @@
 'use strict'
 
 const mongoose = require('mongoose')
-const textSearch = require('mongoose-text-search')
 const Schema = mongoose.Schema
 
 const hotelSchema = new Schema({
@@ -26,11 +25,9 @@ const hotelSchema = new Schema({
     required: false
   }
 })
-// plugin utilizado para poder utilizar los indices tipo text de mongoDB
-hotelSchema.plugin(textSearch)
 
 hotelSchema.index({
-  name: 'text',
+  name: 1,
   starts: 1
 })
 

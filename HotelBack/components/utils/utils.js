@@ -1,26 +1,40 @@
 'use strict'
 
 /**
- * Método que recibe un objeto y sobre este realiza validaciones para determinar cual es el objeto
- * de consulta que mongoDB deberá llevar en su función .find
- * si los atributos name y stars llegan vacios, se deben devolver todos los hoteles existentes
- * @param  {[type]} params [objecto con la estructura: {name : "nombre del hotel a buscar"m stars: 4 (número de estrellas)}]
+ * Método que recibe un arreglo de parámetros a filtrar, cada parámetro de filtro contiene { key : value, type: text/number}
+ * dinámicamente se valida el arreglo recibido para armar la sentencia final que será enviada a la base de datos para filtrar
+ * @param  {[type]} params [arreglo de parámetros de filtro]
  * @return {[type]}        [description]
  */
 let getFilterSentence = (params) => {
-  let sentence = {}
-  console.log('params utils', params)
-  if (params.name !== '' && params.stars === '') {
-    sentence = { $text: {$search: params.name} }
-  } else if (params.name !== '' && params.stars !== '') {
-    sentence = {$and: [{$text: {$search: params.name}}, {stars: {$eq: params.stars}}]}
-  } else if (params.name === '' && params.stars !== '') {
-    sentence = {stars: {$eq: params.stars}}
-  }
-  console.log('sentence', JSON.stringify(sentence, null, 4))
-  return sentence
+    let sentence = {};
+    let filterParams = {};
+    let union = [];
+    let operatorAnd = "$and";
+
+    for (let param of params) {
+        var key = Object.keys(param);
+        if (param.type === "text") {
+            filterParams[key[0]] = {
+                "$regex": new RegExp(param[key[0]],"i")
+            };
+        } else if (param.type === "number") {
+            filterParams[key[0]] = {
+                "$eq": param[key[0]]
+            };
+        }
+    }
+
+    if (params.length > 1) {
+        union.push(filterParams);
+        sentence[operatorAnd] = union;
+    } else {
+        sentence = filterParams;
+    }
+    console.log("filterParams",sentence);
+    return sentence;
 }
 
 module.exports = {
-  getFilterSentence
+    getFilterSentence
 }
